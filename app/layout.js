@@ -11,7 +11,7 @@ const RootLayout = ({ children }) => {
       <body suppressHydrationWarning={true}>
         <div className="main">
           {/* Background color */}
-          <div className="gradient" />
+          <div className="" />
         </div>
 
         {/* Main Content */}
