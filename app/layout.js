@@ -1,4 +1,4 @@
-import '@styles/global.css';
+import '@styles/globals.css';
 
 export const metadata = {
   title: 'GadgetBazar',
@@ -8,7 +8,7 @@ export const metadata = {
 const RootLayout = ({ children }) => {
   return (
     <html lang="en">
-      <body>
+      <body suppressHydrationWarning={true}>
         <div className="main">
           {/* Background color */}
           <div className="gradient" />
