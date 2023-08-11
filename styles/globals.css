@@ -122,3 +122,28 @@
 .flex-between {
   @apply flex justify-between items-center;
 }
+
+.align-items {
+  @apply flex items-center
+}
+
+/* ============================================= */
+/*                     Header                    */
+/* ============================================= */
+
+.search-field {
+  @apply border border-blue-500 rounded-tl-md rounded-bl-md outline-0 w-full p-2 text-gray-600 text-lg 
+}
+
+.search-btn {
+  @apply bg-blue-700 text-white px-9 py-2 text-lg rounded-tr-md rounded-br-md
+}
+
+.icon-wrapper {
+  @apply flex text-2xl text-gray-700 gap-6 ml-14
+}
+
+.nav {
+  @apply w-[80%] m-auto text-lg font-semibold
+}
+
