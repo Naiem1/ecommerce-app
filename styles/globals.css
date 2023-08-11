@@ -147,3 +147,20 @@
   @apply w-[80%] m-auto text-lg font-semibold
 }
 
+/*=================== Hero=================== */
+.hero-wrapper {
+  @apply my-16 bg-blue-500 
+}
+
+.banner-wrapper {
+  @apply absolute top-40 text-gray-700
+}
+
+.banner-price {
+  @apply font-extrabold text-3xl
+}
+
+.banner-title {
+  @apply font-bold text-[56px]
+}
+

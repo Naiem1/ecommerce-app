@@ -1,4 +1,9 @@
+import Hero from "@components/Hero/Hero";
+
 const Home = () => {
-  return <div>Home</div>;
+  return <div>
+
+    <Hero/>
+  </div>;
 };
 export default Home;
