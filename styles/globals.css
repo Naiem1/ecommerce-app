@@ -123,9 +123,14 @@
   @apply flex justify-between items-center;
 }
 
+.flex-around {
+  @apply flex justify-around items-center;
+}
+
 .align-items {
   @apply flex items-center
 }
+
 
 /* ============================================= */
 /*                     Header                    */
@@ -163,4 +168,14 @@
 .banner-title {
   @apply font-bold text-[56px]
 }
+
+/* =========Top Categories Section===== */
+.top-categories {
+  @apply w-9/12 m-auto uppercase text-[#707070]
+}
+
+.category-icon {
+  @apply p-10 cursor-pointer text-gray-600 hover:bg-blue-700 hover:text-white border
+}
+
 
