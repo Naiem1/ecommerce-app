@@ -179,3 +179,37 @@
 }
 
 
+
+/* ================Footer Section=========== */
+
+.footer {
+  @apply bg-[#F9F3F0] px-5 pb-20 pt-5 mt-48
+}
+
+.footer-content_wrapper {
+  @apply flex justify-between w-9/12 m-auto p-5
+}
+
+.footer-content_title {
+  @apply font-bold text-lg text-blue-800 mb-3
+}
+
+.footer-newsletter {
+  @apply font-bold text-lg text-blue-800 mb-3
+}
+
+.footer-newsletter_btn {
+  @apply w-full bg-blue-700 py-2 px-4 text-white font-semibold hover:bg-blue-800 mt-2
+}
+
+.footer-newsletter_input {
+  @apply w-full border-0 outline-0 p-2 text-lg
+}
+
+.footer-copyright {
+  @apply w-9/12 m-auto mt-5
+}
+
+
+
+

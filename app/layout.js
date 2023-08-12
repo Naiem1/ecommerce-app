@@ -1,3 +1,4 @@
+import Footer from '@components/Footer/Footer';
 import Header from '@components/Header/header';
 import '@styles/globals.css';
 
@@ -19,6 +20,7 @@ const RootLayout = ({ children }) => {
         <main className="app">
           <Header />
           {children}
+          <Footer/>
         </main>
       </body>
     </html>
