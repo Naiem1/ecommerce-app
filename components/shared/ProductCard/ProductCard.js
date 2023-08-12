@@ -13,9 +13,9 @@ const ProductCard = ({ product }) => {
   const { img, title, price } = product;
 
   return (
-    <div >
-      <div className="border p-2 min-h-full text-center m-2">
-        <div className='w-60 m-auto'>
+    <div className="border p-2  max-w-[300px] text-center m-2">
+      <div className='p-10'>
+        <div className=" m-auto">
           <Image src={img} width={350} height={10} alt="product image" />
         </div>
         <div>
