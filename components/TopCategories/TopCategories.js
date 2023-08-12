@@ -1,3 +1,4 @@
+import SectionTitle from '@components/shared/SectionTitle/SectionTitle';
 import { BsCamera, BsHeadphones } from 'react-icons/bs';
 import { FiSpeaker } from 'react-icons/fi';
 import { ImMobile } from 'react-icons/im';
@@ -34,12 +35,7 @@ const categoriesIcon = [
 const TopCategories = () => {
   return (
     <section className="top-categories">
-      <div>
-        <h4 className="text-3xl ">
-          <span className="font-bold text-blue-500">Top </span>
-          <span className="">Categories</span>
-        </h4>
-      </div>
+      <SectionTitle text1="top" text2="categories" />
 
       <div className="my-16 flex-around text-center">
         {categoriesIcon.map((category) => (
