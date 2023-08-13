@@ -14,25 +14,25 @@ const phone =
 const productInfo = [
   {
     id: 1,
-    img: laptop,
+    thumbnail: laptop,
     title: 'Acer C720v2103 Chromebook',
     price: 479.0,
   },
   {
     id: 2,
-    img: tablet,
+    thumbnail: tablet,
     title: 'Apple Ipad Air 2',
     price: '548.00',
   },
   {
     id: 3,
-    img: speaker,
+    thumbnail: speaker,
     title: 'Beats By Dr. Dre Beats Pill+ White',
     price: '153.00',
   },
   {
     id: 4,
-    img: phone,
+    thumbnail: phone,
     title: 'Galaxy S7 Case Trianium Ultra Protective Cover',
     price: '8.30',
   },
