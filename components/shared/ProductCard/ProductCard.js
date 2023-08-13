@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 const laptop =
   'https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img01.jpg';
@@ -10,17 +11,20 @@ const phone =
   'https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img04.jpg';
 
 const ProductCard = ({ product }) => {
-  const { thumbnail,images , title, price } = product;
+  const { thumbnail, images, title, price, id } = product;
+ console.log(product.id)
 
   return (
     <div className="border p-2  max-w-[300px] text-center m-2">
       <div className='p-10'>
-        <div className=" m-auto">
+        <Link href={`/product/${id}`}>
+          <div className=" m-auto">
           <Image src={thumbnail} width={350} height={10} alt="product image" />
         </div>
         <div>
           <h4 className="text-lg px-10">{title}</h4>
-        </div>
+          </div>
+        </Link>
         <div>
           <p className="font-bold text-gray-500 text-lg">$ {price}</p>
         </div>

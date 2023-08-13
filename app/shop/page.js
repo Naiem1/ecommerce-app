@@ -1,5 +1,6 @@
 'use client'
 
+import { usePathname } from "next/navigation";
 import ProductCard from "@components/shared/ProductCard/ProductCard";
 import { fetchProducts } from "@redux/slices/productsSlice";
 import { useEffect } from "react";
@@ -20,7 +21,8 @@ const ShopPage = () => {
 
   console.log(products);
 
-
+  const currentPathname = usePathname();
+  console.log('[shop]', currentPathname)
 
   return (
     <div className="mt-10 ">
