@@ -2,6 +2,7 @@ import Image from 'next/image';
 import Logo from '../../public/asset/images/cover-removebg-preview.png';
 import { BsCart3 } from 'react-icons/bs';
 import { MdFavoriteBorder, MdOutlineAccountCircle } from 'react-icons/md';
+import Link from 'next/link';
 
 const Header = () => {
   return (
@@ -9,12 +10,14 @@ const Header = () => {
       {/* top Section */}
       <section className="align-items">
         <div className="w-80">
+          <Link href='/'>
           <Image
             src={Logo}
             width={400}
             height={400}
             alt="Logo of the website"
           />
+          </Link>
         </div>
         <div className="px-6 grow">
           <form>
@@ -44,10 +47,10 @@ const Header = () => {
       <nav className="nav">
         <ul className="flex gap-12">
           <li>
-            <a href="">Home</a>
+            <Link href="/">Home</Link>
           </li>
           <li>
-            <a href="">Shop</a>
+            <Link href="/shop">Shop</Link>
           </li>
           <li>
             <a href="">About</a>
