@@ -37,7 +37,7 @@ const Header = () => {
             <MdFavoriteBorder />
           </div>
           <div className="cursor-pointer">
-            <BsCart3 />
+            <Link href='/cart'><BsCart3 /></Link>
           </div>
         </div>
       </section>
