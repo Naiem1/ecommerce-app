@@ -177,6 +177,54 @@
         "https://i.dummyjson.com/data/products/10/3.jpg",
         "https://i.dummyjson.com/data/products/10/thumbnail.jpeg"
       ]
+    },
+    {
+      "id": 11,
+      "title": "Acer C720v2103 Chromebook",
+      "description": "Acer C720v2103 Chromebook 10th Gen Core i5, 8GB, 256GB SSD, GTX 1650 4GB, Windows 10",
+      "price": 479,
+      "discountPercentage": 10,
+      "rating": 4.6,
+      "stock": 30,
+      "brand": "Acer",
+      "category": "laptops",
+      "thumbnail": "https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img01.jpg"
+    },
+    {
+      "id": 12,
+      "title": "Apple Ipad Air 2",
+      "description": "Apple Ipad Air 2, IPS LCD,  16GB ROM, 2GB RAM, iOS",
+      "price": 584,
+      "discountPercentage": 10,
+      "rating": 4.46,
+      "stock": 50,
+      "brand": "Apple",
+      "category": "tablet",
+      "thumbnail": "https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img02.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Beats By Dr. Dre Beats Pill+ White",
+      "description": "Beats By Dr. Dre Beats Pill+ White Create calendar events, check weather & directions, set an alarm and search the web hands-free",
+      "price": 153,
+      "discountPercentage": 6.18,
+      "rating": 4.83,
+      "stock": 100,
+      "brand": "JBL",
+      "category": "speaker",
+      "thumbnail": "https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img01.jpg"
+    },
+    {
+      "id": 13,
+      "title": "Galaxy S7 Case Trianium Ultra Protective Cover",
+      "description": "Galaxy S7 Case Trianium Ultra Protective Cover Martian Watches Passport Smart Watch (White/Silver/Black)",
+      "price": 8.3,
+      "discountPercentage": 0,
+      "rating": 4.8,
+      "stock": 500,
+      "brand": "Xiaomi",
+      "category": "smartphones",
+      "thumbnail": "https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img04.jpg"
     }
   ]
 }

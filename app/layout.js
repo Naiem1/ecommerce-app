@@ -1,5 +1,6 @@
 import Footer from '@components/Footer/Footer';
 import Header from '@components/Header/header';
+import { Providers } from '@redux/provider';
 import '@styles/globals.css';
 
 export const metadata = {
@@ -18,9 +19,11 @@ const RootLayout = ({ children }) => {
 
         {/* Main Content */}
         <main className="app">
-          <Header />
-          {children}
-          <Footer/>
+          <Providers>
+            <Header />
+            {children}
+            <Footer />
+          </Providers>
         </main>
       </body>
     </html>
