@@ -1,8 +1,11 @@
+'use client'
 import Image from 'next/image';
-const monitor =
-  'https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img15.jpg';
+import { useSelector } from 'react-redux';
+
 
 const CartPage = () => {
+  const cartState = useSelector(state => state.cart);
+
   return (
     <div className="mt-10">
       <div className="w-full bg-[#3C1FF4] mb-10 py-12">
@@ -11,13 +14,13 @@ const CartPage = () => {
 
       <div className="w-9/12  m-auto flex">
         <div className='flex-1 '>
-          <div className='flex align-items shadow-md px-4 rounded border'>
-            <div >
-              <Image src={monitor} width={100} height={90} alt="product image" />
+          {cartState?.item?.map((cart) => <div className='flex align-items shadow-md px-4 py-4 my-1 rounded border'>
+            <div className='mr-3' >
+              <Image src={cart.thumbnail} width={100} height={90} alt="product image" />
             </div>
             <div>
-              <h4 className='font-semibold text-xl'>Acer C720v2103 Chromebook</h4>
-              <p className='font-semibold text-lg'>$153.00</p>
+              <h4 className='font-semibold text-xl'>{cart.title }</h4>
+              <p className='font-semibold text-lg'>$ { cart.price}</p>
             </div>
 
 
@@ -32,14 +35,14 @@ const CartPage = () => {
                 <button className='px-1 py-1 bg-blue-600 text-white w-full text-sm hover:bg-red-500'> REMOVE</button>
               </div>
             </div>
-          </div>
+          </div>)}
         </div>
 
         
         <div className="mt-6 h-full rounded-lg border ml-5 bg-white p-6 shadow-md md:mt-0 md:w-1/3">
         <div className="mb-2 flex justify-between">
           <p className="text-gray-700">Subtotal</p>
-          <p className="text-gray-700">$129.99</p>
+            <p className="text-gray-700">$ { cartState.totalPrice}</p>
         </div>
         <div className="flex justify-between">
           <p className="text-gray-700">Shipping</p>
