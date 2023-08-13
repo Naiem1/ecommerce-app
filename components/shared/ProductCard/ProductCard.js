@@ -10,13 +10,13 @@ const phone =
   'https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img04.jpg';
 
 const ProductCard = ({ product }) => {
-  const { img, title, price } = product;
+  const { thumbnail,images , title, price } = product;
 
   return (
     <div className="border p-2  max-w-[300px] text-center m-2">
       <div className='p-10'>
         <div className=" m-auto">
-          <Image src={img} width={350} height={10} alt="product image" />
+          <Image src={thumbnail} width={350} height={10} alt="product image" />
         </div>
         <div>
           <h4 className="text-lg px-10">{title}</h4>
