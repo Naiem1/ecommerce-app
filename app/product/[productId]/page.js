@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { useEffect } from 'react';
 import { MdShoppingCart } from 'react-icons/md';
 import { useDispatch, useSelector } from 'react-redux';
+import { addItemToCart } from '@redux/slices/cartSlice';
 const monitor =
   'https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img15.jpg';
 
@@ -22,9 +23,11 @@ const ProductPage = ({params}) => {
 
 
   const currentPathname = usePathname();
-  
   const path = currentPathname.replace(/[&\/\\#,+()$~%.'":*?<>{}0-9]/g, '');
   
+  const handleAddToCart = () => {
+    dispatch(addItemToCart(state));
+  }
 
   return (
     <div className="mt-10">
@@ -68,7 +71,7 @@ const ProductPage = ({params}) => {
             <div>
               <MdShoppingCart />
             </div>
-            <button> Add to Cart</button>
+            <button onClick={handleAddToCart}> Add to Cart</button>
           </div>
         </div>
       </div>
