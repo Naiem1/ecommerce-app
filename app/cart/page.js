@@ -1,6 +1,7 @@
 'use client';
 import CartList from '@components/CartList/CartList';
 import { calculateTotalPrice } from '@util/totalPriceCalculation';
+import { calculateTotalProducts } from '@util/totalProduct';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SHIPPING_CHARGE = 4.99;
@@ -10,6 +11,7 @@ const CartPage = () => {
   const cartState = useSelector((state) => state.cart);
   const subtotalPrice = calculateTotalPrice(cartState.item);
   const totalPrice = subtotalPrice + SHIPPING_CHARGE;
+  const totalProduct = calculateTotalProducts(cartState.item);
 
 
 
@@ -21,7 +23,8 @@ const CartPage = () => {
         <p className="w-9/12 m-auto pl-4 text-white text-lg">Cart</p>
       </div>
 
-      <div className="w-9/12  m-auto flex">
+      {
+        totalProduct > 0 ? <div className="w-9/12  m-auto flex">
         <div className="flex-1 ">
           {cartState?.item?.map((cart) => (
             <CartList cart={cart} key={cart.id} />
@@ -49,7 +52,8 @@ const CartPage = () => {
             Check out
           </button>
         </div>
-      </div>
+      </div> : <div className='p-4 bg-blue-700 text-center w-2/12  m-auto text-white font-bold text-lg'>Your Cart Is Empty</div>
+      }
     </div>
   );
 };
