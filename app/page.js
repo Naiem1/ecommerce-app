@@ -4,6 +4,7 @@ import LatestProduct from '@components/LatestProduct/LatestProduct';
 import PromotionalBanner from '@components/PromotionalBanner/PromotionalBanner';
 import TopCategories from '@components/TopCategories/TopCategories';
 import ProductCard from '@components/shared/ProductCard/ProductCard';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
   return (

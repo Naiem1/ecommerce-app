@@ -1,10 +1,17 @@
+'use client'
 import Image from 'next/image';
 import Logo from '../../public/asset/images/cover-removebg-preview.png';
 import { BsCart3 } from 'react-icons/bs';
 import { MdFavoriteBorder, MdOutlineAccountCircle } from 'react-icons/md';
 import Link from 'next/link';
+import { calculateTotalProducts } from '@util/totalProduct';
+import { useSelector } from 'react-redux';
+import Nav from '@components/Nav/Nav';
 
 const Header = () => {
+  const cartState = useSelector(state => state.cart)
+  const totalProduct = calculateTotalProducts(cartState.item);
+
   return (
     <header className="w-11/12 m-auto">
       {/* top Section */}
@@ -36,8 +43,10 @@ const Header = () => {
           <div className="cursor-pointer">
             <MdFavoriteBorder />
           </div>
-          <div className="cursor-pointer">
-            <Link href='/cart'><BsCart3 /></Link>
+          <div className="cursor-pointer relative">
+          <Link href='/cart'>
+            <div className='w-10 h-8 bg-blue-600 absolute rounded-full left-4 bottom-4 text-center text-white'>{ totalProduct}</div>
+            <BsCart3 /></Link>
           </div>
         </div>
       </section>
