@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Logo from '../../public/asset/images/cover-removebg-preview.png'
+import { useSelector } from "react-redux";
 
 const Footer = () => {
   return (
