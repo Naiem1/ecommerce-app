@@ -65,7 +65,7 @@ const ShopPage = () => {
           </div>
       </div>
       <div className=" flex flex-wrap justify-center">
-        {products.map( product => <ProductCard product={product}  />)}
+        {products.map( (product) => <ProductCard product={product} key={product.id}  />)}
       </div>
     </div>
     </div>
