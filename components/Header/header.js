@@ -6,7 +6,6 @@ import { MdFavoriteBorder, MdOutlineAccountCircle } from 'react-icons/md';
 import Link from 'next/link';
 import { calculateTotalProducts } from '@util/totalProduct';
 import { useSelector } from 'react-redux';
-import Nav from '@components/Nav/Nav';
 
 const Header = () => {
   const cartState = useSelector(state => state.cart)
