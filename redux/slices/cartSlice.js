@@ -43,7 +43,6 @@ export const cartSlice = createSlice({
 
       if (removedItem) {
         state.item = state.item.filter((item) => item.id !== productIdToRemove);
-        state.totalPrice -= removedItem.price;
       }
     },
 
