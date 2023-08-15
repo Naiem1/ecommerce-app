@@ -2,6 +2,7 @@
 import CartList from '@components/CartList/CartList';
 import { calculateTotalPrice } from '@util/totalPriceCalculation';
 import { calculateTotalProducts } from '@util/totalProduct';
+import { useRouter } from 'next/navigation';
 import { useDispatch, useSelector } from 'react-redux';
 
 const SHIPPING_CHARGE = 4.99;
@@ -9,6 +10,7 @@ const SHIPPING_CHARGE = 4.99;
 const CartPage = () => {
   const dispatch = useDispatch();
   const cartState = useSelector((state) => state.cart);
+  const router = useRouter()
   const subtotalPrice = calculateTotalPrice(cartState.item);
   const totalPrice = subtotalPrice + SHIPPING_CHARGE;
   const totalProduct = calculateTotalProducts(cartState.item);
@@ -48,7 +50,7 @@ const CartPage = () => {
               <p className="text-sm text-gray-700">including VAT</p>
             </div>
           </div>
-          <button className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">
+          <button onClick={() => router.push('/checkout', {scroll: false})} className="mt-6 w-full rounded-md bg-blue-500 py-1.5 font-medium text-blue-50 hover:bg-blue-600">
             Check out
           </button>
         </div>
