@@ -48,7 +48,9 @@
       "brand": "Samsung",
       "category": "smartphones",
       "thumbnail": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
-      "images": ["https://i.dummyjson.com/data/products/3/1.jpg"]
+      "images": [
+        "https://i.dummyjson.com/data/products/3/1.jpg"
+      ]
     },
     {
       "id": 4,
@@ -225,6 +227,85 @@
       "brand": "Xiaomi",
       "category": "smartphones",
       "thumbnail": "https://template66564.motopreview.com/mt-demo/66500/66564/mt-content/uploads/2018/07/mt-1522_products_img04.jpg"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "username": "John Doe",
+      "email": "john@example.com",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "username": "Jane Smith",
+      "email": "jane@example.com",
+      "role": "admin"
+    },
+    {
+      "username": "Pitter parker",
+      "name": "11000034433434",
+      "password": "pass12343434",
+      "role": "user"
+    },
+    {
+      "username": "Pitter parker jak",
+      "name": "11000034433434",
+      "password": "pass12343434",
+      "role": "user",
+      "id": 0
+    },
+    {
+      "username": "Pitter parker jak p",
+      "name": "11000034433434",
+      "password": "pass12343434",
+      "role": "user",
+      "id": "hijtDlCKD"
+    },
+    {
+      "username": "Harry Potter",
+      "name": "11000034433434",
+      "password": "pass12343434",
+      "id": "wM5tsteAN"
+    },
+    {
+      "username": "Tony Stark",
+      "name": "11000034433434",
+      "password": "pass12343434",
+      "id": "wI9BnNoys",
+      "role": "USER"
+    }
+  ],
+  "orders": [
+    {
+      "id": "qWxSPCtVtb",
+      "item": {
+        "productId": 2,
+        "title": "iPhone X"
+      },
+      "useId": 1,
+      "address": {
+        "firstName": "",
+        "lastName": "",
+        "email": "",
+        "address": "",
+        "city": "",
+        "postcode": ""
+      }
+    }
+  ],
+  "address": [
+    {
+      "id": 1,
+      "orderId": 1,
+      "userId": 1,
+      "street": "123 Main St"
+    },
+    {
+      "id": 2,
+      "orderId": 2,
+      "userId": 2,
+      "street": "456 Elm St"
     }
   ]
 }
