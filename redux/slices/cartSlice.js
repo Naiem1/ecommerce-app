@@ -1,7 +1,29 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import axios from 'axios';
+
+
+
+const URL_2000 = 'http://192.168.0.105:2000'
+const URL_5000 = 'http://localhost:5000'
+
+export const postCartItems = createAsyncThunk(
+  'cart/postCartItems',
+  async (data) => {
+    console.log('post-data', data);
+    try {
+      const response = await axios.post(`http://192.168.0.105:2000/place-order`, data)
+      return response.data;
+    } catch (err) {
+      
+   }
+  }
+)
+
+
 
 const initialState = {
   item: [],
+  status: 'idle'
 };
 
 export const cartSlice = createSlice({
@@ -51,6 +73,22 @@ export const cartSlice = createSlice({
         state.item = [];
       }
     },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(postCartItems.pending, (state) => {
+        state.status = 'pending';
+      })
+      .addCase(postCartItems.fulfilled, (state, action) => {
+        state.status = 'fulfilled';
+        console.log(action.payload)
+      })
+
+      .addCase(postCartItems.rejected, (state, action) => {
+        state.status = 'rejected';
+        state.error = action.payload;
+      })
+  
   },
 });
 

@@ -1,5 +1,6 @@
 'use client';
 import CartList from '@components/CartList/CartList';
+import { clearCart } from '@redux/slices/cartSlice';
 import { calculateTotalPrice } from '@util/totalPriceCalculation';
 import { calculateTotalProducts } from '@util/totalProduct';
 import { useRouter } from 'next/navigation';
@@ -31,6 +32,9 @@ const CartPage = () => {
           {cartState?.item?.map((cart) => (
             <CartList cart={cart} key={cart.id} />
           ))}
+            <div className='mt-5'>
+              <button onClick={() => dispatch(clearCart())} className='px-6 py-2 bg-blue-700 text-white hover:bg-blue-800'>Clear All</button>
+            </div>
         </div>
 
         <div className="mt-6 h-full rounded-lg border ml-5 bg-white p-6 shadow-md md:mt-0 md:w-1/3">
