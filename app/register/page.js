@@ -1,18 +1,28 @@
 'use client';
 
+import { registerUser } from '@redux/slices/authSlice';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+const INITIAL_STATE =  {
+  email: '',
+  password: '',
+  username: '',
+}
 
 const Register = () => {
-  const [credential, setCredential] = useState({
-    phone: 0,
-    password: '',
-    name: '',
-  });
+  const [userData, setUserData] = useState({...INITIAL_STATE});
+
+  const dispatch = useDispatch();
+  const router = useRouter();
+
+  const authState = useSelector(state => state.auth);
 
   const handleRegister = (e) => {
-    setCredential({
-      ...credential,
+    setUserData({
+      ...userData,
       [e.target.name]: e.target.value,
     });
   };
@@ -20,10 +30,20 @@ const Register = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(credential);
+    if (userData.username && userData.email && userData.password) {
+      dispatch(registerUser(userData));
+    }
+
+    if (authState.status === 'fulfilled') {
+      setUserData({ ...INITIAL_STATE });
+      router.push('/login', {scroll: false})
+    }
+    
   }
 
-  console.log(credential);
+  console.log(authState);
+
+
 
   return (
     <div className="mt-10">
@@ -49,10 +69,11 @@ const Register = () => {
             <div>
               <div className="relative">
                 <input
-                  type="number"
+                  type="email"
                   className="w-full rounded-lg border-gray-200 outline-blue-700 p-4 pe-12 text-sm shadow-sm"
-                  placeholder="Enter phone number"
-                  name="phone"
+                  placeholder="Enter email number"
+                  name="email"
+                  value={userData.email}
                   onChange={handleRegister}
                 />
               </div>
@@ -65,6 +86,7 @@ const Register = () => {
                   className="w-full rounded-lg border-gray-200 outline-blue-700 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter password"
                   name="password"
+                  value={userData.password}
                   onChange={handleRegister}
                 />
               </div>
@@ -76,7 +98,8 @@ const Register = () => {
                   type="text"
                   className="w-full rounded-lg border-gray-200 outline-blue-700 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter your name"
-                  name="name"
+                  name="username"
+                  value={userData.username}
                   onChange={handleRegister}
                 />
               </div>

@@ -1,28 +1,39 @@
-'use client'
+'use client';
+import {  logoutUser } from '@redux/slices/authSlice';
+import { calculateTotalProducts } from '@util/totalProduct';
 import Image from 'next/image';
-import Logo from '../../public/asset/images/cover-removebg-preview.png';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { BsCart3 } from 'react-icons/bs';
 import { MdFavoriteBorder, MdOutlineAccountCircle } from 'react-icons/md';
-import Link from 'next/link';
-import { calculateTotalProducts } from '@util/totalProduct';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import Logo from '../../public/asset/images/cover-removebg-preview.png';
 
 const Header = () => {
-  const cartState = useSelector(state => state.cart)
+  const dispatch = useDispatch();
+  const router = useRouter();
+  const cartState = useSelector((state) => state.cart);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
   const totalProduct = calculateTotalProducts(cartState.item);
+
+  const handleLogout = () => {
+    dispatch(logoutUser());
+    router.push('/login');
+  };
 
   return (
     <header className="w-11/12 m-auto">
       {/* top Section */}
       <section className="align-items">
         <div className="w-80">
-          <Link href='/'>
-          <Image
-            src={Logo}
-            width={400}
-            height={400}
-            alt="Logo of the website"
-          />
+          <Link href="/">
+            <Image
+              src={Logo}
+              width={400}
+              height={400}
+              alt="Logo of the website"
+            />
           </Link>
         </div>
         <div className="px-6 grow">
@@ -43,9 +54,12 @@ const Header = () => {
             <MdFavoriteBorder />
           </div>
           <div className="cursor-pointer relative">
-          <Link href='/cart'>
-            <div className='w-10 h-8 bg-blue-600 absolute rounded-full left-4 bottom-4 text-center text-white'>{ totalProduct}</div>
-            <BsCart3 /></Link>
+            <Link href="/cart">
+              <div className="w-10 h-8 bg-blue-600 absolute rounded-full left-4 bottom-4 text-center text-white">
+                {totalProduct}
+              </div>
+              <BsCart3 />
+            </Link>
           </div>
         </div>
       </section>
@@ -53,7 +67,7 @@ const Header = () => {
       {/* Navigation Section */}
 
       <nav className="nav">
-        <ul className="flex gap-12">
+        <ul className="flex align-center gap-12">
           <li>
             <Link href="/">Home</Link>
           </li>
@@ -68,6 +82,20 @@ const Header = () => {
           </li>
           <li>
             <a href="">Contact</a>
+          </li>
+          <li>
+            {isAuthenticated ? (
+              <a
+                onClick={handleLogout}
+                className="px-4 py-2 bg-blue-700 text-white cursor-pointer"
+              >
+                Logout
+              </a>
+            ) : (
+              <Link href="/login" className="px-4 py-2 bg-blue-700 text-white">
+                Login
+              </Link>
+            )}
           </li>
         </ul>
       </nav>
