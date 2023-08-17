@@ -1,12 +1,19 @@
 'use client'
+import { loginUser } from "@redux/slices/authSlice";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+const INITIAL_STATE = {
+  username: '',
+  password: '',
+}
 
 const Login = () => {
-  const [credential, setCredential] = useState({
-    phone: 0,
-    password: '',
-  });
+  const dispatch = useDispatch();
+  const authState = useSelector(state => state.auth);
+  const [credential, setCredential] = useState({ ...INITIAL_STATE });
 
   const handleRegister = (e) => {
     setCredential({
@@ -15,13 +22,21 @@ const Login = () => {
     });
   };
 
+  const router = useRouter();
+
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(credential);
+    dispatch(loginUser({ ...credential }));
+
+    if (authState.status === 'fulfilled') {
+      setCredential({ ...INITIAL_STATE });
+      router.push(authState.redirectAfterLogin);
+    }
+    
   }
 
-  console.log(credential);
+  console.log('AUTH-STATE>>', authState);
 
   return (
     <div className="mt-10">
@@ -47,10 +62,10 @@ const Login = () => {
             <div>
               <div className="relative">
                 <input
-                  type="number"
+                  type="text"
                   className="w-full rounded-lg border-gray-200 outline-blue-700 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter phone number"
-                  name="phone"
+                  name="username"
                   onChange={handleRegister}
                 />
               </div>
