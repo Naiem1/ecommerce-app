@@ -6,7 +6,7 @@ const { createSlice, createAsyncThunk } = require('@reduxjs/toolkit');
 export const fetchProducts = createAsyncThunk(
   'products/fetchProducts',
   async () => {
-    const response = await axios.get(`http://localhost:5000/products`);
+    const response = await axios.get(`https://ecommerce-7lqv.onrender.com/products`);
     return response.data;
   }
 );
@@ -14,7 +14,7 @@ export const fetchProducts = createAsyncThunk(
 export const fetchProductById = createAsyncThunk(
   'products/fetchProductById',
   async (productId) => {
-    const response = await axios.get(`http://localhost:5000/products/${productId}`);
+    const response = await axios.get(`https://ecommerce-7lqv.onrender.com/products/${productId}`);
     return response.data;
   }
 )
