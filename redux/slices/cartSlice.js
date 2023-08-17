@@ -11,7 +11,7 @@ export const postCartItems = createAsyncThunk(
   async (data) => {
     console.log('post-data', data);
     try {
-      const response = await axios.post(`http://192.168.0.105:2000/place-order`, data)
+      const response = await axios.post(`https://ecommerce-7lqv.onrender.com/place-order`, data)
       return response.data;
     } catch (err) {
       

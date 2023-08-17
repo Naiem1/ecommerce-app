@@ -7,7 +7,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 const INITIAL_STATE =  {
-  email: '',
+  phone: '',
   password: '',
   username: '',
 }
@@ -30,7 +30,7 @@ const Register = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    if (userData.username && userData.email && userData.password) {
+    if (userData.username && userData.phone && userData.password) {
       dispatch(registerUser(userData));
     }
 
@@ -69,10 +69,10 @@ const Register = () => {
             <div>
               <div className="relative">
                 <input
-                  type="email"
+                  type="phone"
                   className="w-full rounded-lg border-gray-200 outline-blue-700 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter email number"
-                  name="email"
+                  name="phone"
                   value={userData.email}
                   onChange={handleRegister}
                 />

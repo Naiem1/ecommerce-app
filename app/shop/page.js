@@ -12,7 +12,7 @@ const ShopPage = () => {
 
   const dispatch = useDispatch();
   
-  const products = useSelector((state) => state.products.data);
+  const products = useSelector((state) => state?.products?.data);
 
   useEffect(() => {
     dispatch(fetchProducts());
@@ -22,7 +22,6 @@ const ShopPage = () => {
   console.log(products);
 
   const currentPathname = usePathname();
-  console.log('[shop]', currentPathname)
 
   return (
     <div className="mt-10 ">
@@ -65,7 +64,7 @@ const ShopPage = () => {
           </div>
       </div>
       <div className=" flex flex-wrap justify-center">
-        {products.map( (product) => <ProductCard product={product} key={product.id}  />)}
+        {products?.products?.map( (product) => <ProductCard product={product} key={product.id}  />)}
       </div>
     </div>
     </div>

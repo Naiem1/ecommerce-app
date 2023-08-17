@@ -14,6 +14,7 @@ const Header = () => {
   const router = useRouter();
   const cartState = useSelector((state) => state.cart);
   const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+  const authState = useSelector(state => state.auth);
 
   const totalProduct = calculateTotalProducts(cartState.item);
 
@@ -87,16 +88,20 @@ const Header = () => {
             {isAuthenticated ? (
               <a
                 onClick={handleLogout}
-                className="px-4 py-2 bg-blue-700 text-white cursor-pointer"
+                className="px-4 py-2 bg-blue-700 text-white rounded cursor-pointer"
               >
                 Logout
               </a>
             ) : (
-              <Link href="/login" className="px-4 py-2 bg-blue-700 text-white">
+              <Link href="/login" className="px-4 py-2 bg-blue-700 rounded text-white">
                 Login
               </Link>
             )}
           </li>
+          {authState?.user?.role === 'ADMIN' &&
+            <li>
+              <a className="px-4 py-2 bg-blue-700 text-white cursor-pointer rounded" href="/dashboard">Dashboard</a>
+            </li>}
         </ul>
       </nav>
     </header>

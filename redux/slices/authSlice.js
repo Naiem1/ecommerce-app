@@ -2,15 +2,12 @@ const { createAsyncThunk, createSlice } = require('@reduxjs/toolkit');
 const { default: axios } = require('axios');
 
 export const registerUser = createAsyncThunk('auth/registerUser', async (userData) => {
-  const response = await axios.post('http://192.168.0.105:2000/register', { ...userData });
-  console.log('response>>', response);
+  const response = await axios.post('https://ecommerce-7lqv.onrender.com/register', { ...userData });
   return response.data;
 });
 
 export const loginUser = createAsyncThunk('auth/loginUser', async (loginData) => {
-  console.log({loginData});
-  const response = await axios.post('http://192.168.0.105:2000/login', {...loginData});
-  console.log('response>>', response);
+  const response = await axios.post('https://ecommerce-7lqv.onrender.com/login', {...loginData});
   return response.data;
 });
 

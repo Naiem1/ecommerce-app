@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 const INITIAL_STATE = {
-  username: '',
+  phone: '',
   password: '',
 }
 
@@ -30,8 +30,9 @@ const Login = () => {
     dispatch(loginUser({ ...credential }));
 
     if (authState.status === 'fulfilled') {
+      router.replace(authState.redirectAfterLogin.toString());
+      console.log(authState.redirectAfterLogin)
       setCredential({ ...INITIAL_STATE });
-      router.push(authState.redirectAfterLogin);
     }
     
   }
@@ -62,10 +63,10 @@ const Login = () => {
             <div>
               <div className="relative">
                 <input
-                  type="text"
+                  type="phone"
                   className="w-full rounded-lg border-gray-200 outline-blue-700 p-4 pe-12 text-sm shadow-sm"
                   placeholder="Enter phone number"
-                  name="username"
+                  name="phone"
                   onChange={handleRegister}
                 />
               </div>
